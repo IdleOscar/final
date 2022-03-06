@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+  <title>Registrate</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link href="CSS.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/c98d165499.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav id="menu" class="navbar navbar-expand-sm bg-light ">
+      <a class="navbar-brand" href="oscar.html"><i class="fa fa-pied-piper"></i> Idle</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+    <ul class="navbar-nav">
+
+
+    </ul>
+  </nav>
+  <div class="input_container" id="Register">
+
+    <form class="" id="formy">
+      <div >
+        <input type="text" /*id="nameform" */ name="name" value="" placeholder="First name" required="">
+        <span class="error_form" id="errornameform"></span>
+
+      </div>
+      <div class="">
+        <input type="text" id="Secnameform" name="secname" value="" placeholder="Surname" required="">
+        <span class="error_form" id="errorSecname"></span>
+
+
+      </div>
+
+      <div class="">
+        <input type="password" placeholder="password" id="passwordform" name="password" value="" required="">
+        <span class="error_form" id="erroropassword"></span>
+
+      </div>
+      <div class="">
+        <input type="password" id="checkpass" placeholder="Rewrite the password" name="checkpassword" value="" required="">
+        <span class="error_form" id="errorcheckpass"></span>
+
+
+      </div>
+      <input type="submit" value="Submit" >
+    </form>
+
+  </div>
+   <script>
+
+  $("#formy").validate({
+
+    rules: {
+      name: {
+        required: true,
+        minlength: 3
+      },
+      secname:{
+      required: true,
+      minlength: 3
+      },
+
+      password: {
+        required: true,
+        minlength: 2
+      },
+      checkpassword: {
+        required: true,
+        function (){
+          var x = $("#checkpass").val();
+          var y =   $("#passwordform").val();
+          if(x == y && x != "" ){
+            alert ("Registred successfull")
+
+            return true;
+          } else {
+            alert ("Password aren't same");
+          }
+        }
+      },
+
+
+    },
+    messages:{
+      name:{
+        required:"Enter name",
+        minlength: "At least 3 character"
+
+      },
+      secname:{
+        required:"Enter surname",
+        minlength: "At least 3 character"
+      },
+      password:{
+        required : "Enter password",
+        minlength : "At least 2 character"
+      },
+      checkpassword: {
+        required: "Rewrite the password",
+
+
+      }
+
+
+    },
+
+
+
+  });
+
+
+</script>
+</body>
